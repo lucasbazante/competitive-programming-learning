@@ -23,5 +23,13 @@ int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
+  int a, b;
+  cin >> a >> b;
+
+  if (a == b)
+    cout << -1 << nl;
+  else
+    cout << 6 - a - b << nl;
+
   return 0;
 }

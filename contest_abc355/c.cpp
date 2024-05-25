@@ -23,5 +23,34 @@ int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
+  int n, t, ti, d = 0, antid = 0;
+  cin >> n >> t;
+
+  vector<int> row(n), col(n);
+
+  forinc(turn, 1, t) {
+    cin >> ti;
+    ti--;
+
+    int i = ti / n, j = ti % n;
+
+    auto inc = [&](int &v) {
+      if (++v == n) {
+        cout << turn << nl;
+        exit(0);
+      }
+    };
+
+    inc(row[i]);
+    inc(col[j]);
+
+    if (i == j)
+      inc(d);
+    if (i + j == n - 1)
+      inc(antid);
+  }
+
+  cout << -1 << nl;
+
   return 0;
 }

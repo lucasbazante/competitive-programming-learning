@@ -23,5 +23,24 @@ int main() {
   ios::sync_with_stdio(0);
   cin.tie(0);
 
+  int n, l, r;
+  cin >> n;
+
+  vector<pair<int, int>> pairs;
+  while (n-- and cin >> l >> r)
+    pairs.pb({l, -1}), pairs.pb({r, 1});
+
+  sort(pairs.begin(), pairs.end());
+
+  int count = 0, ans = 0;
+  foreach (p, pairs) {
+    if (p.se == -1)
+      ++count;
+    else
+      ans += --count;
+  }
+
+  cout << ans << nl;
+
   return 0;
 }
